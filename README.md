@@ -1,2 +1,2 @@
 # aliasy
-a game server framework base on skynet
+a slg game server framework base on skynet
