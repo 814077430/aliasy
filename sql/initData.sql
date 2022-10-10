@@ -1,0 +1,1 @@
+INSERT INTO `t_general` (`id`, `IncrId`) VALUES(1, 0);
