@@ -3,6 +3,6 @@ local cmds = require "cmds"
 local err = require "error"
 local const = require "const"
 
-function cmds.d2s_start(fd, msg)
-    
+function cmds.d2s_start(msg)
+
 end
