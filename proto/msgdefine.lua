@@ -4,8 +4,12 @@ M =
 {
     c2s_login = 10001,
     s2c_login = 10002,
+    
     c2s_logout = 10003,
     s2c_logout = 10004,
+
+    c2s_getPlayerData = 20001,
+    s2c_getPlayerData = 20002,
 }
 
 for msgname, msgid in pairs(M) do 
