@@ -22,9 +22,9 @@ function __start__()
 	logger.Debug("db service start")
 	
 	db = mysql.connect({
-		host = "10.12.32.1",
+		host = "127.0.0.1",
 		port = 3306,
-		database = "leaf",
+		database = "aliasy",
 		user = "root",
 		password = "test",
         charset = "utf8",
