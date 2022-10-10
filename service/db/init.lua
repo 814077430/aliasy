@@ -48,6 +48,7 @@ function __start__()
 	end
 
 	db.init()
+	db.start()
 
 	skynet.timeout(const.Internal, __tick__)
 end
