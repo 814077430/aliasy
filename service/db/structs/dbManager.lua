@@ -29,7 +29,7 @@ end
 function dbManager.start()
     local res = db:query("select incrId from t_general")
     for i = 1, res[1].incrId, const.DbLoadNum do
-        res = db:query("select acc, uid, roleData from t_user where id >= "..i.."and id < "..(i+const.DbLoadNum))
+        res = db:query("select acc, uid, roleData from t_user where id >= "..i.." and id < "..(i+const.DbLoadNum))
         for j = 1, #res do
         end
     end
