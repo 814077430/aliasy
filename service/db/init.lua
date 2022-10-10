@@ -6,10 +6,9 @@ local logger = require "log"
 local cmds = require "cmds"
 local lfs = require "lfs"
 
+local db = nil
 local name = ""
 local id = ""
-
-local db = nil
 
 local function __init__(name, id)
 	name = name
