@@ -16,6 +16,6 @@ Enum.RouteLogin = 1
 Enum.RouteGame = 2
 Enum.RouteWorld = 3
 
-Enum.DbLoadNum = 120
+Enum.DbLoadNum = 200
 
 return Enum

@@ -1,3 +1,4 @@
+local skynet = require "skynet"
 local mysql = require "skynet.db.mysql"
 local logger = require "log"
 local const = require "const"
@@ -28,10 +29,10 @@ end
 
 function dbManager.start()
     local res = db:query("select incrId from t_general")
+    skynet.send(const.Summary, "lua", "d2s_playerIncrId", res)
     for i = 1, res[1].incrId, const.DbLoadNum do
-        res = db:query("select acc, uid, roleData from t_user where id >= "..i.." and id < "..(i+const.DbLoadNum))
-        for j = 1, #res do
-        end
+        res = db:query("select acc, uid from t_user where id >= "..i.." and id < "..(i+const.DbLoadNum))
+        skynet.send(const.Summary, "lua", "d2s_start", res)
     end
 end
 
