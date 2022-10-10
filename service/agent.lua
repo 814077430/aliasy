@@ -8,15 +8,15 @@ local fd
 local CMD = {}
 local ROUTE = {};
 
-ROUTE[1] = function(name, data)
+ROUTE[const.RouteLogin] = function(name, data)
 	return pcall(skynet.call, const.Login, "lua", name, skynet.self(), data)
 end
 
-ROUTE[2] = function(name, data)
+ROUTE[const.RouteGame] = function(name, data)
 	return pcall(skynet.call, const.Game, "lua", name, skynet.self(), data)
 end
 
-ROUTE[3] = function(name, data)
+ROUTE[const.RouteWorld] = function(name, data)
 	return pcall(skynet.call, const.World, "lua", name, skynet.self(), data)
 end
 

@@ -13,7 +13,7 @@ function cmds.c2s_login(fd, msg)
 	local info = {}
 	info.uid = p.uid
 	info.fd = fd
-	skynet.send(const.World, "lua", "l2g_login", info)
+	skynet.send(const.Game, "lua", "l2g_login", info)
 	skynet.send(const.World, "lua", "l2w_login", info)
 
 	--ret client

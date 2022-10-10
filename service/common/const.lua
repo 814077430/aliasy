@@ -11,5 +11,8 @@ Enum.Chat = "chat"
 Enum.Battle = "battle"
 Enum.Db = "db"
 
+Enum.RouteLogin = 1
+Enum.RouteGame = 2
+Enum.RouteWorld = 3
 
 return Enum
