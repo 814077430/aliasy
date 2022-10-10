@@ -46,11 +46,6 @@ local function __start__()
 		end
 	end
 	
-	skynet.timeout(const.Internal, __tick__)
 end
 
 skynet.start(__start__)
-
-function __tick__()
-	skynet.timeout(const.Internal, __tick__)
-end
