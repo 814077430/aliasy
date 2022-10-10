@@ -42,34 +42,16 @@ function PlayerManager:new()
     return o
 end
 
-function PlayerManager:login(account)
-    if not self.acc2Uid[account] then
-        self:createPlayer(account)
-    end
-
-    local uid = self.acc2Uid[account]
-
-    return self.players[uid]
-end
-
 function PlayerManager:createPlayer(account)
-    self.playerIncrId = self.playerIncrId + 1
-    uid = const.PlayerUid + self.playerIncrId
-    
-    --init
-    local player = Player:new()
-    player.uid = uid
-    player.account = account
-    player.roleData = RoleData:new()
-    player.roleData.name = "noname"
 
-    self.players[uid] = player
-    self.onlines[uid] = player
-    self.acc2Uid[account] = uid
 end
 
 function PlayerManager:getPlayer(uid)
-    return self.players[uid]
+
+end
+
+function PlayerManager:login()
+
 end
 
 function PlayerManager:logout()
