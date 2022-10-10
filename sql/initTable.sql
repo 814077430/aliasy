@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS t_general (
   PRIMARY KEY (`id`)
 )ENGINE = INNODB DEFAULT CHARSET=utf8;
 
-/*t_user t_guest表结构一样*/
 DROP TABLE IF EXISTS t_user;
 CREATE TABLE IF NOT EXISTS `t_user` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
