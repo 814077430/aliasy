@@ -10,6 +10,9 @@ lua_path =
 "./proto/?.lua;"..
 "service/common/?.lua;"..
 "service/game/handler/?.lua;".."service/game/structs/?.lua;"..
-"service/world/handler/?.lua;".."service/world/structs/?.lua;"
+"service/world/handler/?.lua;".."service/world/structs/?.lua;"..
+"service/db/handler/?.lua;".."service/db/structs/?.lua;"..
+"service/chat/handler/?.lua;".."service/chat/structs/?.lua;"..
+"service/login/handler/?.lua;".."service/login/structs/?.lua;"
 
 lua_cpath = "./luaclib/?.so;" .. "./skynet/luaclib/?.so"
