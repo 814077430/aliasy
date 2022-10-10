@@ -1,0 +1,12 @@
+syntax = "proto2";
+package pb;
+
+message PlayerData {
+    optional string account = 1;
+    optional int32 uid = 2;
+    optional RoleData roleData = 3;
+}
+
+message RoleData {
+    optional string name = 1;
+}
