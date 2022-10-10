@@ -3,8 +3,9 @@ package pb;
 
 //c2s s2c 成对出现时候 s2c = c2s + 1
 //push 消息可以单独定义 s2c
-//10000 <= id < 20000 route to game service
-//20000 <= id < 30000 route to world service
+//10000 <= id < 20000 route to login service
+//20000 <= id < 30000 route to game service
+//30000 <= id < 40000 route to world service
 
 enum MessageId
 {

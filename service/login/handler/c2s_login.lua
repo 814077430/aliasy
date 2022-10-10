@@ -9,20 +9,17 @@ function cmds.c2s_login(fd, msg)
 	local p = game.playerManager:login(msg.account)
 	con.addCon(p.uid, fd);
 	
-	--notice world
+	--notice other
 	local info = {}
 	info.uid = p.uid
 	info.fd = fd
-	skynet.send(const.World, "lua", "g2w_login", info)
+	skynet.send(const.World, "lua", "l2g_login", info)
+	skynet.send(const.World, "lua", "l2w_login", info)
 
 	--ret client
 	local ret = {}
 	ret.code = err.Success;
-	ret.data = {};
-	ret.data.account = msg.account;
-	ret.data.uid = p.uid;
-	ret.data.roleData = {}
-	ret.data.roleData.name = p.roleData.name
+	ret.token = "";
 	
 	return ret;
 end

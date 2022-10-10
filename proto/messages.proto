@@ -8,6 +8,15 @@ message c2s_login {
 
 message s2c_login {
     optional int32 code = 1;
+	optional string token = 2;
+}
+
+message c2s_getPlayerData {
+    optional string token = 1;
+}
+
+message s2c_getPlayerData {
+    optional int32 code = 1;
 	optional PlayerData data = 2;
 }
 
