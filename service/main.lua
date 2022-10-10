@@ -7,6 +7,7 @@ local function init()
 	logger.Debug("server start")
 	
 	local db = skynet.newservice("db")
+	local summary = skynet.newservice("summary")
 	local battle = skynet.newservice("battle")
 	local chat = skynet.newservice("chat")
 	local game = skynet.newservice("game")

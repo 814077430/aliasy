@@ -14,6 +14,7 @@ lua_path =
 "service/db/handler/?.lua;".."service/db/structs/?.lua;"..
 "service/chat/handler/?.lua;".."service/chat/structs/?.lua;"..
 "service/login/handler/?.lua;".."service/login/structs/?.lua;"..
-"service/battle/handler/?.lua;".."service/battle/structs/?.lua;"
+"service/battle/handler/?.lua;".."service/battle/structs/?.lua;"..
+"service/summary/handler/?.lua;".."service/summary/structs/?.lua;"
 
 lua_cpath = "./luaclib/?.so;" .. "./skynet/luaclib/?.so"

@@ -9,6 +9,7 @@ Enum.Game = "game"
 Enum.World = "world"
 Enum.Chat = "chat"
 Enum.Battle = "battle"
+Enum.Summary = "summary"
 Enum.Db = "db"
 
 Enum.RouteLogin = 1
