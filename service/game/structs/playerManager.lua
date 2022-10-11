@@ -57,10 +57,20 @@ function PlayerManager:createPlayer(account)
     skynet.send(const.Db, "lua", "g2d_insert_t_user", player.account, player.uid)
 
     player.roleData = RoleData:new()
+    player.roleData.name = "noname"
+    self:addDirty(player.uid, "roleData")
 
     self.players[player.uid] = player
     self.onlines[player.uid] = player
     self.acc2Uid[player.account] = player.uid
+end
+
+function PlayerManager:addDirty(uid, key)
+    if not self.dirtys[uid] then
+        self.dirtys[uid] = {}
+    end
+
+    self.dirtys[uid][key] = 1
 end
 
 function PlayerManager:getPlayer(account)
