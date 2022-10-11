@@ -58,11 +58,11 @@ function PlayerManager:getPlayer(account)
     return self.players[uid]
 end
 
-function PlayerManager:onLogin()
+function PlayerManager:onLogin(uid)
     
 end
 
-function PlayerManager:onLogout()
+function PlayerManager:onLogout(uid)
 
 end
 
