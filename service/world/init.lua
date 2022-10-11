@@ -5,6 +5,8 @@ local logger = require "log"
 local cmds = require "cmds"
 local lfs = require "lfs"
 
+local worldManager = require "worldManager"
+
 local name = ""
 local id = ""
 
@@ -46,6 +48,8 @@ local function __start__()
 		end
 	end
 
+	worldManager.init()
+
 	--start tick
 	skynet.timeout(const.Internal, __tick__)
 end
@@ -53,5 +57,6 @@ end
 skynet.start(__start__)
 
 function __tick__()
+	worldManager.tick()
 	skynet.timeout(const.Internal, __tick__)
 end

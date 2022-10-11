@@ -19,7 +19,10 @@ Enum.RouteWorld = 3
 
 Enum.DbLoadNum = 10
 
-Enum.secret = "aliasy"
-Enum.tokenTime = 10
+Enum.Secret = "aliasy"
+Enum.TokenTime = 10
+
+Enum.WorldLength = 1200
+Enum.Worldwidth = 1200
 
 return Enum

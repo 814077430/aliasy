@@ -2,6 +2,7 @@ local skynet = require "skynet"
 local cmds = require "cmds"
 local con = require "connect"
 local err = require "error"
+local const = require "const"
 local util = require "util"
 local playerManager = require "playerManager"
 
@@ -9,8 +10,8 @@ function cmds.c2s_getPlayerData(fd, msg)
     local ret = {}
     ret.code = err.Success
 
-    local tc = tonumber(util.decryptData(msg.token, const.secret))
-    if (skynet.time() - tc) > const.tokenTime then
+    local tc = tonumber(util.decryptData(msg.token, const.Secret))
+    if (skynet.time() - tc) > const.TokenTime then
         ret.code = err.TokenInvalid
         return ret      
     end 

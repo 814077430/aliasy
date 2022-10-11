@@ -27,7 +27,9 @@ PlayerManager = {
     players = {},
     onlines = {},
     acc2Uid = {},
-    playerIncrId = 0
+    playerIncrId = 0,
+    dirtys = {},
+    lastDay = 0,
 }
 
 function PlayerManager:new()
