@@ -24,5 +24,6 @@ Enum.TokenTime = 10
 
 Enum.WorldLength = 1200
 Enum.Worldwidth = 1200
+Enum.TileLen = 10
 
 return Enum
