@@ -17,7 +17,9 @@ message c2s_getPlayerData {
 
 message s2c_getPlayerData {
     optional int32 code = 1;
-	optional PlayerData data = 2;
+	optional string account = 2;
+    optional int32 uid = 3;
+    optional roleData roleData = 4;
 }
 
 message c2s_logout {

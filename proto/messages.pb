@@ -1,5 +1,5 @@
 
-‹
+«
 messages.protopbcommons.proto"
 	c2s_login
 account (	"(
@@ -7,10 +7,12 @@
 code (
 token (	""
 c2s_getPlayerData
-token (	"?
+token (	"_
 s2c_getPlayerData
-code (
-data (2.pb.PlayerData"
+code (
+account (	
+uid (
+roleData (2.pb.roleData"
 
 c2s_logout
 account (	"
