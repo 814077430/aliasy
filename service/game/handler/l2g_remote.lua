@@ -14,7 +14,30 @@ function cmds.l2g_login(msg)
     end
 
     local player = playerManager:getPlayer(account)
+
+    if not player then
+        return
+    end
+
     con.addCon(player.uid, fd);
 
     skynet.send(const.World, "lua", "l2w_login", player.uid, fd)
+end
+
+function cmds.l2g_logout(msg)
+    local account = msg.account
+    local fd = msg.fd
+
+    local uid = playerManager.acc2Uid[account]
+    if not uid then
+        return
+    end
+
+    local player = playerManager:getPlayer(account)
+    if not player then
+        return
+    end
+
+    con.delCon(uid)
+    playerManager:onLogout(uid)
 end

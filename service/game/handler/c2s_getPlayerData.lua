@@ -15,7 +15,7 @@ function cmds.c2s_getPlayerData(fd, msg)
         return ret      
     end 
 
-    local uid = con.playerFds(fd)
+    local uid = con.getUid(fd)
     if not uid then
         ret.code = err.NoPlayer
         return ret
