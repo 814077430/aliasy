@@ -1,36 +1,28 @@
 local skynet = require "skynet"
-local cmds = require "cmds"
 local con = require "connect"
 local err = require "error"
 local const = require "const"
+local worldAoiManager = require "worldAoiManager"
 
 --WorldManager
-WorldManager = {
-    length = const.WorldLength,
-    width = const.Worldwidth,
-    world = {},
-    lastDay = 0,
-}
+WorldManager = {}
 
-function WorldManager:new()
-    local o = {}
-    setmetatable(o, self)
-    self.__index = self
+WorldManager.world = nil
+WorldManager.lastDay = 0
 
-    self.length = const.WorldLength
-    self.width = const.Worldwidth
-    self.world = {}
-    self.lastDay = 0
-
-    return o
+function WorldManager.init()
+    WorldManager.lastDay = math.ceil(math.ceil(skynet.time()) / const.OneDay)
+    worldAoiManager.init(const.WorldLength, const.Worldwidth)
 end
 
-function WorldManager:init()
+function WorldManager.tick()
+    --corss day
+    local day = math.ceil(math.ceil(skynet.time()) / const.OneDay)
+    if WorldManager.lastDay ~= day then
+        WorldManager.lastDay = day
+        --to do cross day
 
+    end
 end
 
-function WorldManager:tick()
-
-end
-
-return WorldManager:new()
+return WorldManager
