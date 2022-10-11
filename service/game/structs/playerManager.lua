@@ -47,6 +47,7 @@ function PlayerManager:createPlayer(account)
     self.playerIncrId = self.playerIncrId + 1
     player.uid = const.PlayerUid + self.playerIncrId
     player.account = account
+    player.roleData = RoleData:new()
     self.players[player.uid] = player
     self.onlines[player.uid] = player
     self.acc2Uid[player.account] = player.uid
