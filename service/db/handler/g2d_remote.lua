@@ -9,7 +9,8 @@ function cmds.g2d_update_t_general(column, data)
 end
 
 function cmds.g2d_insert_t_user(account, uid)
-    dbManager.db:query("insert into t_user set account = "..account..", uid = "..uid)
+    print("insert into t_user set account = "..account..", uid = "..uid)
+    dbManager.db:query("insert into t_user set account = '"..account.."', uid = "..uid)
 end
 
 function cmds.g2d_update_t_user(uid, column, data)
