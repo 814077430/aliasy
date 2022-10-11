@@ -1,6 +1,11 @@
 syntax = "proto2";
 package pb;
 
+//player.roleData 玩家结构字段 
+//db.roleData 数据库字段
+//pb.roleData protobuf结构
+//名称与结构保持一致
+
 message PlayerData {
     optional string account = 1;
     optional int32 uid = 2;
