@@ -6,12 +6,12 @@ local logger = require "log"
 local function init()
 	logger.Debug("server start")
 	
-	local db = skynet.newservice("db")
 	local battle = skynet.newservice("battle")
 	local chat = skynet.newservice("chat")
 	local game = skynet.newservice("game")
 	local world = skynet.newservice("world")
 	local login = skynet.newservice("login")
+	local db = skynet.newservice("db")
 	
 	local watchdog = skynet.newservice("watchdog")
 	local addr, port = skynet.call(watchdog, "lua", "start", {

@@ -22,4 +22,9 @@ function xserialize.encodeToDb(msgname, data)
     return stringbuffer
 end
 
+function xserialize.decodeToDb(msgname, buffer)
+    local body = protobuf.decode("pb."..msgname, buffer)
+    return body
+end
+
 return xserialize

@@ -2,6 +2,7 @@ local skynet = require "skynet"
 local cmds = require "cmds"
 local con = require "connect"
 local err = require "error"
+local xserialize = require "xserialize"
 local playerManager = require "playerManager"
 
 function cmds.d2g_playerIncrId(msg)
@@ -10,7 +11,12 @@ end
 
 function cmds.d2g_start(msg)
     for i = 1, #msg, 1 do
-        playerManager.players[msg[i].uid] = msg
-        playerManager.acc2Uid[msg[i].acc] = msg[i].uid
+        for k, v in pairs(msg[i]) do
+            if k ~= "uid" and k ~= "account" then
+                msg[i][k] = xserialize.decodeToDb(k, v)
+            end
+        end
+        playerManager.players[msg[i].uid] = msg[i]
+        playerManager.acc2Uid[msg[i].account] = msg[i].uid
     end
 end
