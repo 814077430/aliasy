@@ -14,5 +14,6 @@ end
 
 function cmds.g2d_update_t_user(uid, column, data)
     local sql = dbManager.db:prepare("update t_user set ? = ? where uid = ?")
-    dbManager.db:execute(sql, column, data, uid)
+    local ret = dbManager.db:execute(sql, column, data, uid)
+    
 end

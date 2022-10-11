@@ -13,7 +13,7 @@ function dbManager.init()
         database = "aliasy",
         user = "root",
         password = "test",
-        charset = "utf8",
+        charset = "utf8mb4",
         max_packet_size = 1024 * 1024,
         on_connect = nil
     })
