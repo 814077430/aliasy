@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS t_general (
 DROP TABLE IF EXISTS t_user;
 CREATE TABLE IF NOT EXISTS `t_user` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `acc` varchar(50) binary CHARSET utf8 NOT NULL DEFAULT '',
+  `account` varchar(50) binary CHARSET utf8 NOT NULL DEFAULT '',
   `uid` int(20) unsigned NOT NULL DEFAULT '0',
   `roleData` mediumblob,
   

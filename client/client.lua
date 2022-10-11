@@ -10,7 +10,7 @@ local function send_data(fd)
     while true do
         skynet.sleep(500)
         local pack = xserialize.encode(msgdef.c2s_login, {
-            account = "hello",
+            account = "aliasy",
         })
 		
 		local msgname, msgid, body = xserialize.decode(pack)

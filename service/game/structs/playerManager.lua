@@ -1,5 +1,7 @@
 local skynet = require "skynet"
 local const = require "const"
+local msgdef = require "msgdefine"
+local xserialize = require "xserialize"
 local RoleData = require "playerRoleDataManager"
 
 --Player
@@ -39,15 +41,23 @@ function PlayerManager:new()
     self.onlines = {}
     self.acc2Uid = {}
 
+    self.dirtys = {} -- uid : {'roleData' : 1, 'itemData' : 1 ...}
+
     return o
 end
 
 function PlayerManager:createPlayer(account)
-    local player = Player:new()
     self.playerIncrId = self.playerIncrId + 1
-    player.uid = const.PlayerUid + self.playerIncrId
+    skynet.send(const.Db, "lua", "g2d_update_t_general", "playerIncrId", self.playerIncrId)
+
+    local player = Player:new()
+    
     player.account = account
+    player.uid = const.PlayerUid + self.playerIncrId
+    skynet.send(const.Db, "lua", "g2d_insert_t_user", player.account, player.uid)
+
     player.roleData = RoleData:new()
+
     self.players[player.uid] = player
     self.onlines[player.uid] = player
     self.acc2Uid[player.account] = player.uid
@@ -59,7 +69,7 @@ function PlayerManager:getPlayer(account)
 end
 
 function PlayerManager:onLogin(uid)
-    
+
 end
 
 function PlayerManager:onLogout(uid)
@@ -67,7 +77,12 @@ function PlayerManager:onLogout(uid)
 end
 
 function PlayerManager:tick()
-
+    for k, v in pairs(self.dirtys) do
+        for k1, v2 in pairs(v) do
+            local data = xserialize.encode(msgdef[k1], player[k1])
+            skynet.send(const.Db, "lua", "g2d_update_t_user", k, k1, data)
+        end
+    end
 end
 
 return PlayerManager:new()

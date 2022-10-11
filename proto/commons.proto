@@ -4,9 +4,9 @@ package pb;
 message PlayerData {
     optional string account = 1;
     optional int32 uid = 2;
-    optional RoleData roleData = 3;
+    optional roleData roleData = 3;
 }
 
-message RoleData {
+message roleData {
     optional string name = 1;
 }
