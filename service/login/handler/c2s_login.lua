@@ -10,10 +10,12 @@ function cmds.c2s_login(fd, msg)
 	msg.fd = fd
 	skynet.send(const.Game, "lua", "l2g_login", msg)
 
+	--third platform
+
 	--ret client
 	local ret = {}
-	ret.code = err.Success;
-	ret.token = "";
+	ret.code = err.Success
+	ret.token = util.encryptData(skynet.starttime(), const.secret)
 	
 	return ret;
 end

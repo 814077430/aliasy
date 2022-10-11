@@ -1,4 +1,3 @@
-local skynet = require "skynet"
 local string = require "string"
 
 local util = {}

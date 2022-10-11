@@ -17,4 +17,7 @@ Enum.RouteWorld = 3
 
 Enum.DbLoadNum = 10
 
+Enum.secret = "aliasy"
+Enum.tokenTime = 10
+
 return Enum
