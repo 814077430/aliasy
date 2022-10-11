@@ -13,7 +13,6 @@ function cmds.g2d_insert_t_user(account, uid)
 end
 
 function cmds.g2d_update_t_user(uid, column, data)
-    local sql = dbManager.db:prepare("update t_user set ? = ? where uid = ?")
-    print(column, data, uid)
-    dbManager.db:execute(sql, column, data, uid)
+    local sql = dbManager.db:prepare("update t_user set "..column.." = ? where uid = "..uid)
+    dbManager.db:execute(sql, data)
 end
