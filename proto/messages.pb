@@ -19,12 +19,7 @@ c2s_logout
 
 s2c_logout
 code (
-y
-commons.protopb"J
-
-PlayerData
-account (	
-uid (
-roleData (2.pb.roleData"
+-
+commons.protopb"
 roleData
 name (	

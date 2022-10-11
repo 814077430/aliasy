@@ -6,12 +6,6 @@ package pb;
 //pb.roleData protobuf结构
 //名称与结构保持一致
 
-message PlayerData {
-    optional string account = 1;
-    optional int32 uid = 2;
-    optional roleData roleData = 3;
-}
-
 message roleData {
     optional string name = 1;
 }
