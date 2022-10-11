@@ -52,8 +52,9 @@ function PlayerManager:createPlayer(account)
     self.acc2Uid[player.account] = player.uid
 end
 
-function PlayerManager:getPlayer(uid)
-
+function PlayerManager:getPlayer(account)
+    local uid = self.acc2Uid[account]
+    return self.players[uid]
 end
 
 function PlayerManager:login()

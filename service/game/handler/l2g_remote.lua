@@ -12,5 +12,6 @@ function cmds.l2g_login(msg)
         playerManager.createPlayer(acc)
     end
 
-    con.addCon(uid, fd);
+    local player = playerManager.getPlayer(acc)
+    con.addCon(player.uid, fd);
 end
