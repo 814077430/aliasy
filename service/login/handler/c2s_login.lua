@@ -15,7 +15,7 @@ function cmds.c2s_login(fd, msg)
 	--ret client
 	local ret = {}
 	ret.code = err.Success
-	ret.token = util.encryptData(skynet.starttime(), const.secret)
+	ret.token = util.encryptData(skynet.time(), const.secret)
 	
 	return ret;
 end

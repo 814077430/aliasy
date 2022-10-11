@@ -42,6 +42,8 @@ function PlayerManager:new()
 
     self.dirtys = {} -- uid : {'roleData' : 1, 'itemData' : 1 ...}
 
+    self.lastDay = 0
+
     return o
 end
 
@@ -77,6 +79,10 @@ function PlayerManager:getPlayer(account)
     return self.players[uid]
 end
 
+function PlayerManager:onStart()
+    self.lastDay =  math.ceil(math.ceil(skynet.time()) / const.OneDay)
+end
+
 function PlayerManager:onLogin(uid)
 
 end
@@ -85,13 +91,22 @@ function PlayerManager:onLogout(uid)
 
 end
 
-function PlayerManager:tick()
+function PlayerManager:onTick()
+    --deal dirtys
     for k, v in pairs(self.dirtys) do
         for k1, v1 in pairs(v) do
             local data = xserialize.encodeToDb(k1, self.players[k][k1])
             skynet.send(const.Db, "lua", "g2d_update_t_user", k, k1, data)
         end
         self.dirtys[k] = nil
+    end
+
+    --corss day
+    local day = math.ceil(math.ceil(skynet.time()) / const.OneDay)
+    if self.lastDay ~= day then
+        self.lastDay = day
+        --to do cross day
+
     end
 end
 

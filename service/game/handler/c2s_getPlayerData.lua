@@ -10,7 +10,7 @@ function cmds.c2s_getPlayerData(fd, msg)
     ret.code = err.Success
 
     local tc = tonumber(util.decryptData(msg.token, const.secret))
-    if (skynet.starttime() - tc) > const.tokenTime then
+    if (skynet.time() - tc) > const.tokenTime then
         ret.code = err.TokenInvalid
         return ret      
     end 

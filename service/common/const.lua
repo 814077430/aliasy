@@ -1,5 +1,7 @@
 Enum = {}
 
+Enum.OneDay = 86400
+
 Enum.MaxClient = 10000
 Enum.Internal = 10
 Enum.PlayerUid = 10000000
