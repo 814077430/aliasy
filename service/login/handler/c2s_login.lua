@@ -6,11 +6,9 @@ local const = require "const"
 
 function cmds.c2s_login(fd, msg)
 	--notice other
-	local info = {}
-	info.uid = 1
-	info.fd = fd
-	skynet.send(const.Game, "lua", "l2g_login", info)
-	skynet.send(const.World, "lua", "l2w_login", info)
+	msg.fd = fd
+	skynet.send(const.Game, "lua", "l2g_login", msg)
+	skynet.send(const.World, "lua", "l2w_login", msg)
 
 	--ret client
 	local ret = {}

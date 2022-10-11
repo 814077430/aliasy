@@ -9,7 +9,8 @@ function cmds.d2g_playerIncrId(msg)
 end
 
 function cmds.d2g_start(msg)
-    for k, v in pairs(msg) do
-        local player = {}
+    for i = 1, #msg, 1 do
+        playerManager.players[msg[i].uid] = msg
+        playerManager.acc2Uid[msg[i].acc] = msg[i].uid
     end
 end
