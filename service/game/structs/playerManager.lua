@@ -1,6 +1,5 @@
 local skynet = require "skynet"
 local const = require "const"
-local msgdef = require "msgdefine"
 local xserialize = require "xserialize"
 local RoleData = require "playerRoleDataManager"
 
@@ -89,9 +88,10 @@ end
 function PlayerManager:tick()
     for k, v in pairs(self.dirtys) do
         for k1, v2 in pairs(v) do
-            local data = xserialize.encode(msgdef[k1], player[k1])
+            local data = xserialize.encodeToDb(k1, self.players[k][k1])
             skynet.send(const.Db, "lua", "g2d_update_t_user", k, k1, data)
         end
+        self.dirtys[k] = nil
     end
 end
 

@@ -17,4 +17,9 @@ function xserialize.decode(msg)
     return protoname, msgid, body
 end
 
+function xserialize.encodeToDb(msgname, data)
+    local stringbuffer = protobuf.encode("pb."..msgname, data)
+    return stringbuffer
+end
+
 return xserialize

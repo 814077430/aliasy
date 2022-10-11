@@ -9,10 +9,10 @@ function cmds.g2d_update_t_general(column, data)
 end
 
 function cmds.g2d_insert_t_user(account, uid)
-    print("insert into t_user set account = "..account..", uid = "..uid)
     dbManager.db:query("insert into t_user set account = '"..account.."', uid = "..uid)
 end
 
 function cmds.g2d_update_t_user(uid, column, data)
-    dbManager.db:query("update t_user set "..column.." = "..data.." where uid = "..uid)
+    local sql = dbManager.db:prepare("update t_user set ? = ? where uid = ?")
+    dbManager.db:execute(sql, column, data, uid)
 end

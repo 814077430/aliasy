@@ -4,6 +4,5 @@ local con = require "connect"
 local err = require "error"
 
 function cmds.l2w_login(uid, fd)
-    print(uid, fd)
     con.addCon(uid, fd);
 end
