@@ -28,11 +28,11 @@ function dbManager.init()
 end
 
 function dbManager.start()
-    local res = db:query("select incrId from t_general")
-    skynet.send(const.Summary, "lua", "d2s_playerIncrId", res)
-    for i = 1, res[1].incrId, const.DbLoadNum do
-        res = db:query("select acc, uid from t_user where id >= "..i.." and id < "..(i+const.DbLoadNum))
-        skynet.send(const.Summary, "lua", "d2s_start", res)
+    local res = db:query("select playerIncrId from t_general")
+    skynet.send(const.Game, "lua", "d2g_playerIncrId", res)
+    for i = 1, res[1].playerIncrId, const.DbLoadNum do
+        res = db:query("select acc, uid from t_user where id >= "..i.." and id < "..(i + const.DbLoadNum))
+        skynet.send(const.Game, "lua", "d2g_start", res)
     end
 end
 

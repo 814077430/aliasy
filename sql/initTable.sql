@@ -1,9 +1,10 @@
 DROP TABLE IF EXISTS t_general;
 CREATE TABLE IF NOT EXISTS t_general (
   `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
-  `incrId` int(20) unsigned NOT NULL DEFAULT '0',
-  `unionIncrID` int unsigned NOT NULL DEFAULT '0',
+  `playerIncrId` int(20) unsigned NOT NULL DEFAULT '0',
+  `unionIncrID` int(20) unsigned NOT NULL DEFAULT '0',
   `serverStartTime` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `serverStopTime` bigint(20) unsigned NOT NULL DEFAULT '0',
 
   PRIMARY KEY (`id`)
 )ENGINE = INNODB DEFAULT CHARSET=utf8;

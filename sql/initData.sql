@@ -1,1 +1,1 @@
-INSERT INTO `t_general` (`id`, `IncrId`) VALUES(1, 0);
+INSERT INTO `t_general` (`id`, `playerIncrId`, `unionIncrId`) VALUES(1, 0, 0);
