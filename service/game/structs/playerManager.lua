@@ -37,6 +37,7 @@ function PlayerManager:new()
     self.players = {}
     self.onlines = {}
     self.acc2Uid = {}
+    self.summary = {}
     self.playerIncrId = 0
 
     return o
