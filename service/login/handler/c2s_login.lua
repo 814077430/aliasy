@@ -6,11 +6,11 @@ local const = require "const"
 local util = require "util"
 
 function cmds.c2s_login(fd, msg)
+	--third platform
+
 	--notice game
 	msg.fd = fd
 	skynet.send(const.Game, "lua", "l2g_login", msg)
-
-	--third platform
 
 	--ret client
 	local ret = {}
