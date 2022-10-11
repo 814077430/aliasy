@@ -6,7 +6,7 @@ local const = require "const"
 
 local fd 
 local CMD = {}
-local ROUTE = {};
+local ROUTE = {}
 
 ROUTE[const.RouteLogin] = function(name, data)
 	return pcall(skynet.call, const.Login, "lua", name, skynet.self(), data)
