@@ -34,16 +34,22 @@ function PlayerManager:new()
     setmetatable(o, self)
     self.__index = self
 
+    self.playerIncrId = 0
     self.players = {}
     self.onlines = {}
     self.acc2Uid = {}
-    self.playerIncrId = 0
 
     return o
 end
 
 function PlayerManager:createPlayer(account)
-
+    local player = Player:new()
+    self.playerIncrId = self.playerIncrId + 1
+    player.uid = const.PlayerUid + self.playerIncrId
+    player.account = account
+    self.players[player.uid] = player
+    self.onlines[player.uid] = player
+    self.acc2Uid[player.account] = player.uid
 end
 
 function PlayerManager:getPlayer(uid)
