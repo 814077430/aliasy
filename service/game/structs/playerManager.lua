@@ -87,7 +87,7 @@ end
 
 function PlayerManager:tick()
     for k, v in pairs(self.dirtys) do
-        for k1, v2 in pairs(v) do
+        for k1, v1 in pairs(v) do
             local data = xserialize.encodeToDb(k1, self.players[k][k1])
             skynet.send(const.Db, "lua", "g2d_update_t_user", k, k1, data)
         end
