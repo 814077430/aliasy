@@ -6,6 +6,8 @@ local logger = require "log"
 local cmds = require "cmds"
 local lfs = require "lfs"
 
+local UnionManager = require "unionManager"
+
 local name = ""
 local id = ""
 
@@ -46,6 +48,8 @@ local function __start__()
 			require(file)
 		end
 	end
+
+	UnionManager:onStart()
 	
 	--start tick
 	skynet.timeout(const.Internal, __tick__)
@@ -54,5 +58,6 @@ end
 skynet.start(__start__)
 
 function __tick__()
+	UnionManager:onTick()
 	skynet.timeout(const.Internal, __tick__)
 end
