@@ -27,13 +27,23 @@ function dbManager.init()
 end
 
 function dbManager.start()
-    local res = dbManager.db:query("select playerIncrId from t_general")
-    skynet.send(const.Game, "lua", "d2g_playerIncrId", res)
+    local data
+    local res = dbManager.db:query("select playerIncrId, unionIncrId from t_general")
+    
+    skynet.send(const.Game, "lua", "d2g_playerIncrId", res[1].playerIncrId)
     
     for i = 1, res[1].playerIncrId, const.DbLoadNum do
-        res = dbManager.db:query("select account, uid, roleData from t_user where id >= "..i.." and id < "..(i + const.DbLoadNum))
-        skynet.send(const.Game, "lua", "d2g_start", res)
+        data = dbManager.db:query("select account, uid, roleData from t_user where id >= "..i.." and id < "..(i + const.DbLoadNum))
+        skynet.send(const.Game, "lua", "d2g_start", data)
     end
+
+    skynet.send(const.Union, "lua", "d2u_unionIncrId", res[1].unionIncrId)
+
+    for i = 1, res[1].unionIncrId, const.DbLoadNum do
+        data = dbManager.db:query("select unid, baseData from t_union where id >= "..i.." and id < "..(i + const.DbLoadNum))
+        skynet.send(const.Union, "lua", "d2u_start", data)
+    end
+
 end
 
 return dbManager

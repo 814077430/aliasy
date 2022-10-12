@@ -5,8 +5,8 @@ local err = require "error"
 local xserialize = require "xserialize"
 local playerManager = require "playerManager"
 
-function cmds.d2g_playerIncrId(msg)
-    playerManager.playerIncrId = msg[1].playerIncrId    
+function cmds.d2g_playerIncrId(playerIncrId)
+    playerManager.playerIncrId = playerIncrId 
 end
 
 function cmds.d2g_start(msg)
