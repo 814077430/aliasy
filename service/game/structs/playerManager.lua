@@ -93,6 +93,10 @@ function PlayerManager:onLogout(uid)
 
 end
 
+function PlayerManager:crossDay()
+
+end
+
 function PlayerManager:onTick()
     --deal dirtys
     for k, v in pairs(self.dirtys) do
@@ -107,8 +111,7 @@ function PlayerManager:onTick()
     local day = math.ceil(math.ceil(skynet.time()) / const.OneDay)
     if self.lastDay ~= day then
         self.lastDay = day
-        --to do cross day
-
+        self:crossDay()
     end
 end
 
