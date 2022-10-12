@@ -11,6 +11,7 @@ lua_path =
 "service/common/?.lua;"..
 "service/game/handler/?.lua;".."service/game/structs/?.lua;"..
 "service/world/handler/?.lua;".."service/world/structs/?.lua;"..
+"service/union/handler/?.lua;".."service/union/structs/?.lua;"..
 "service/db/handler/?.lua;".."service/db/structs/?.lua;"..
 "service/chat/handler/?.lua;".."service/chat/structs/?.lua;"..
 "service/login/handler/?.lua;".."service/login/structs/?.lua;"..

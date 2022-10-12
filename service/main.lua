@@ -10,6 +10,7 @@ local function init()
 	local chat = skynet.newservice("chat")
 	local game = skynet.newservice("game")
 	local world = skynet.newservice("world")
+	local union = skynet.newservice("union")
 	local login = skynet.newservice("login")
 	local db = skynet.newservice("db")
 	
