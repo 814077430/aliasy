@@ -15,13 +15,16 @@ function WorldManager.init()
     worldAoiManager.init(const.WorldLength, const.Worldwidth)
 end
 
+function WorldManager.crossDay()
+
+end
+
 function WorldManager.tick()
     --corss day
     local day = math.ceil(math.ceil(skynet.time()) / const.OneDay)
     if WorldManager.lastDay ~= day then
         WorldManager.lastDay = day
-        --to do cross day
-
+        WorldManager.crossDay()
     end
 end
 
