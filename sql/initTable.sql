@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS t_union;
 CREATE TABLE IF NOT EXISTS `t_union` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `unid` int(20) unsigned NOT NULL DEFAULT '0',
-  `base` mediumblob,
+  `baseData` mediumblob,
   
   PRIMARY KEY (`id`),
   UNIQUE KEY `INDEX_UNION_GUID` (`unid`)
