@@ -3,7 +3,11 @@ local game = {}
 local playerManager = require "playerManager"
 game.playerManager = playerManager
 
-function game.tick()
+function game.onStart()
+
+end
+
+function game.onTick()
     game.playerManager:onTick()
 end
 

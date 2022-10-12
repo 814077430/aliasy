@@ -5,7 +5,7 @@ local const = require "const"
 local logger = require "log"
 local cmds = require "cmds"
 local lfs = require "lfs"
-local game = require "gameManager"
+local gameManager = require "gameManager"
 
 local name = ""
 local id = ""
@@ -48,6 +48,8 @@ local function __start__()
 		end
 	end
 	
+	gameManager.onStart()
+
 	--start tick
 	skynet.timeout(const.Internal, __tick__)
 end
@@ -55,6 +57,6 @@ end
 skynet.start(__start__)
 
 function __tick__()
-	game.tick()
+	gameManager.onTick()
 	skynet.timeout(const.Internal, __tick__)
 end
