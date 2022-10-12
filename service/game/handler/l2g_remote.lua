@@ -21,7 +21,8 @@ function cmds.l2g_login(msg)
 
     con.addCon(player.uid, fd);
 
-    skynet.send(const.World, "lua", "l2w_login", player.uid, fd)
+    skynet.send(const.World, "lua", "g2w_login", player.uid, fd)
+    skynet.send(const.Union, "lua", "g2u_login", player.uid, fd)
 end
 
 function cmds.l2g_logout(msg)
