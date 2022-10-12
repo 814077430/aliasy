@@ -3,8 +3,11 @@ Enum = {}
 Enum.OneDay = 86400
 
 Enum.MaxClient = 10000
+
 Enum.Internal = 10
+
 Enum.PlayerUid = 10000000
+Enum.UnionUid = 10000000
 
 Enum.Login = "login"
 Enum.Game = "game"
