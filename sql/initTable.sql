@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS `t_user` (
   
   PRIMARY KEY (`id`),
   UNIQUE KEY `INDEX_PALYER_GUID` (`uid`)
-  
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 DROP TABLE IF EXISTS t_union;
@@ -29,5 +28,14 @@ CREATE TABLE IF NOT EXISTS `t_union` (
   
   PRIMARY KEY (`id`),
   UNIQUE KEY `INDEX_UNION_GUID` (`unid`)
-  
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+DROP TABLE IF EXISTS t_world;
+CREATE TABLE IF NOT EXISTS `t_world` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `eid` bigint(20) unsigned NOT NULL DEFAULT '0',
+  `entityData` mediumblob,
+
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `INDEX_AREA_UID` (`eid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
