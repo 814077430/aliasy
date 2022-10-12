@@ -37,5 +37,5 @@ CREATE TABLE IF NOT EXISTS `t_world` (
   `entityData` mediumblob,
 
   PRIMARY KEY (`id`),
-  UNIQUE KEY `INDEX_AREA_UID` (`eid`)
+  UNIQUE KEY `INDEX_WORLD_GUID` (`eid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
