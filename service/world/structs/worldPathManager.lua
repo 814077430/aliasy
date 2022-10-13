@@ -37,8 +37,10 @@ function WorldPathManager.init(length, width)
         if not line then break end
         for j = 1, width do
             block = tonumber(string.sub(line, j, j))
+            if block == 1 then
+                WorldPathManager.j:add_block(i, j - 1)
+            end
         end
-        WorldPathManager.j:add_block(i, j - 1)
         i = i + 1
     end
 end
