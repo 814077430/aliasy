@@ -36,8 +36,8 @@ function WorldPathManager.init(length, width)
         line = file:read()
         if not line then break end
         for j = 1, width do
-            block = tonumber(string.sub(line, j, j))
-            if block == 1 then
+            block = string.sub(line, j, j)
+            if block == "1" then
                 WorldPathManager.j:add_block(i, j - 1)
             end
         end
