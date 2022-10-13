@@ -18,3 +18,10 @@ lua_path =
 "service/battle/handler/?.lua;".."service/battle/structs/?.lua;"
 
 lua_cpath = "./luaclib/?.so;" .. "./skynet/luaclib/?.so"
+
+
+mysql_host="127.0.0.1"
+mysql_port=3306
+mysql_database="aliasy"
+mysql_user="root"
+mysql_pwd="test"

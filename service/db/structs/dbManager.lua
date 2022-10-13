@@ -8,11 +8,11 @@ dbManager.db = nil
 
 function dbManager.init()
     dbManager.db = mysql.connect({
-        host = "127.0.0.1",
-        port = 3306,
-        database = "aliasy",
-        user = "root",
-        password = "test",
+        host = skynet.getenv("mysql_host"),
+        port = skynet.getenv("mysql_port"),
+        database = skynet.getenv("mysql_database"),
+        user = skynet.getenv("mysql_user"),
+        password = skynet.getenv("mysql_pwd"),
         charset = "utf8mb4",
         max_packet_size = 1024 * 1024,
         on_connect = nil
