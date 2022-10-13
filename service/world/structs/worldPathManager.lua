@@ -44,14 +44,14 @@ function WorldPathManager.init(length, width)
 end
 
 function WorldPathManager.add_block(x, y)
-    WorldPathManager.add_block(x, y)
+    WorldPathManager:add_block(x, y)
 end
 
 function WorldPathManager.findPath(x1, y1, x2, y2)
-    WorldPathManager.j.set_start(x1, y1)
-    WorldPathManager.j.set_end(x2, y2)
+    WorldPathManager.j:set_start(x1, y1)
+    WorldPathManager.j:set_end(x2, y2)
     WorldPathManager.j:mark_connected() 
-    return WorldPathManager.j.find_path()
+    return WorldPathManager.j:find_path()
 end
 
 return WorldPathManager
