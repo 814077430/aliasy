@@ -31,7 +31,7 @@ function WorldPathManager.init(length, width)
     local line = ""
     local block
     local i = 0
-    local j
+    local j = 1
     while line do
         line = file:read()
         if not line then break end
@@ -50,6 +50,7 @@ end
 function WorldPathManager.findPath(x1, y1, x2, y2)
     WorldPathManager.j.set_start(x1, y1)
     WorldPathManager.j.set_end(x2, y2)
+    WorldPathManager.j:mark_connected() 
     return WorldPathManager.j.find_path()
 end
 
