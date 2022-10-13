@@ -20,3 +20,7 @@ function cmds.d2u_start(msg)
         unionManager.unions[msg[i].unid] = msg[i]
     end
 end
+
+function cmds.d2u_loadOver()
+    
+end

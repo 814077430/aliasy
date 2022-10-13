@@ -3,6 +3,7 @@ CREATE TABLE IF NOT EXISTS t_general (
   `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
   `playerIncrId` int(20) unsigned NOT NULL DEFAULT '0',
   `unionIncrId` int(20) unsigned NOT NULL DEFAULT '0',
+  `worldIncrId` int(20) unsigned NOT NULL DEFAULT '0',
   `serverStartTime` bigint(20) unsigned NOT NULL DEFAULT '0',
   `serverStopTime` bigint(20) unsigned NOT NULL DEFAULT '0',
 

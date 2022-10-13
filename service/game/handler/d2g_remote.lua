@@ -22,3 +22,7 @@ function cmds.d2g_start(msg)
 
     playerManager:onStart()
 end
+
+function cmds.d2g_loadOver()
+    
+end

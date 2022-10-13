@@ -28,8 +28,9 @@ end
 
 function dbManager.start()
     local data
-    local res = dbManager.db:query("select playerIncrId, unionIncrId from t_general")
+    local res = dbManager.db:query("select playerIncrId, unionIncrId, worldIncrId from t_general")
     
+    --game
     skynet.send(const.Game, "lua", "d2g_playerIncrId", res[1].playerIncrId)
     
     for i = 1, res[1].playerIncrId, const.DbLoadNum do
@@ -37,6 +38,7 @@ function dbManager.start()
         skynet.send(const.Game, "lua", "d2g_start", data)
     end
 
+    --union
     skynet.send(const.Union, "lua", "d2u_unionIncrId", res[1].unionIncrId)
 
     for i = 1, res[1].unionIncrId, const.DbLoadNum do
@@ -44,6 +46,17 @@ function dbManager.start()
         skynet.send(const.Union, "lua", "d2u_start", data)
     end
 
+    --world
+    skynet.send(const.World, "lua", "d2w_worldIncrId", res[1].worldIncrId)
+
+    for i = 1, res[1].worldIncrId, const.DbLoadNum do
+        data = dbManager.db:query("select eid, entityData from t_world where id >= "..i.." and id < "..(i + const.DbLoadNum))
+        skynet.send(const.World, "lua", "d2g_start", data)
+    end
+
+    skynet.send(const.Game, "lua", "d2g_loadOver")
+    skynet.send(const.Union, "lua", "d2u_loadOver")
+    skynet.send(const.World, "lua", "d2w_loadOver")
 end
 
 return dbManager

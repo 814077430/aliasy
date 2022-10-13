@@ -8,8 +8,8 @@ function cmds.u2d_update_t_general(column, data)
     dbManager.db:query("update t_general set "..column.." = "..data)
 end
 
-function cmds.u2d_insert_t_union(account, uid)
-    dbManager.db:query("insert into t_union set account = '"..account.."', uid = "..uid)
+function cmds.u2d_insert_t_union(unid)
+    dbManager.db:query("insert into t_union set unid = "..unid)
 end
 
 function cmds.u2d_update_t_union(unid, column, data)
