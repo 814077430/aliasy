@@ -49,6 +49,10 @@ function WorldPathManager.addBlock(x, y)
     WorldPathManager:add_block(x, y)
 end
 
+function WorldPathManager.clearBlock(x, y)
+    WorldPathManager:clear_block(x, y)
+end
+
 function WorldPathManager.findPath(x1, y1, x2, y2)
     WorldPathManager.j:set_start(x1, y1)
     WorldPathManager.j:set_end(x2, y2)
