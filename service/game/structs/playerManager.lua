@@ -21,22 +21,22 @@ function PlayerManager.Player()
 end
 
 function PlayerManager.createPlayer(account)
-    self.playerIncrId = self.playerIncrId + 1
-    skynet.send(const.Db, "lua", "g2d_update_t_general", "playerIncrId", self.playerIncrId)
+    PlayerManager.playerIncrId = PlayerManager.playerIncrId + 1
+    skynet.send(const.Db, "lua", "g2d_update_t_general", "playerIncrId", PlayerManager.playerIncrId)
 
     local player = PlayerManager.Player()
     
     player.account = account
-    player.uid = const.PlayerUid + self.playerIncrId
+    player.uid = const.PlayerUid + PlayerManager.playerIncrId
     skynet.send(const.Db, "lua", "g2d_insert_t_user", player.account, player.uid)
 
     player.roleData = RoleData.create()
     player.roleData.name = "noname"
-    self:addDirty(player.uid, "roleData")
+    PlayerManager:addDirty(player.uid, "roleData")
 
-    self.players[player.uid] = player
-    self.onlines[player.uid] = player
-    self.acc2Uid[player.account] = player.uid
+    PlayerManager.players[player.uid] = player
+    PlayerManager.onlines[player.uid] = player
+    PlayerManager.acc2Uid[player.account] = player.uid
 end
 
 function PlayerManager.addDirty(uid, key)
