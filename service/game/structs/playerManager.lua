@@ -1,7 +1,7 @@
 local skynet = require "skynet"
 local const = require "const"
 local xserialize = require "xserialize"
-local RoleData = require "playerRoleDataManager"
+local RoleData = require "roleDataManager"
 
 local PlayerManager = {}
 PlayerManager.players = {}
