@@ -124,6 +124,24 @@ clear_allblock(lua_State *L) {
 }
 
 static int
+check_block(lua_State *L) {
+    struct map *m = luaL_checkudata(L, 1, MT_NAME);
+    int x = luaL_checkinteger(L, 2);
+    int y = luaL_checkinteger(L, 3);
+    if (!check_in_map(x, y, m->width, m->height)) {
+        luaL_error(L, "Position (%d,%d) is out of map", x, y);
+    }
+    int pos = m->width * y + x;
+    if (BITTEST(m->m, pos)) {
+        lua_pushinteger(L, 1);
+    }
+    else{
+        lua_pushinteger(L, 0);
+    }
+    return 1;
+}
+
+static int
 set_start(lua_State *L) {
     struct map *m = luaL_checkudata(L, 1, MT_NAME);
     int x = luaL_checkinteger(L, 2);
@@ -680,6 +698,7 @@ lmetatable(lua_State *L) {
             {"add_blockset", add_blockset},
             {"clear_block", clear_block},
             {"clear_allblock", clear_allblock},
+            {"check_block", check_block},
             {"set_start", set_start},
             {"set_end", set_end},
             {"find_path", find_path},
