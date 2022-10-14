@@ -51,7 +51,7 @@ function PlayerManager:getPlayer(account)
 end
 
 function PlayerManager:onStart()
-    PlayerManager.lastDay =  math.ceil(math.ceil(skynet.time()) / const.OneDay)
+    PlayerManager.lastDay = math.ceil(math.ceil(skynet.time()) / const.OneDay)
 end
 
 function PlayerManager:onLogin(uid)
