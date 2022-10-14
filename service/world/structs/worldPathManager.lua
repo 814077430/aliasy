@@ -53,6 +53,10 @@ function WorldPathManager.clearBlock(x, y)
     WorldPathManager:clear_block(x, y)
 end
 
+function WorldPathManager.checkBlock(x, y)
+    WorldPathManager:check_block(x, y)
+end
+
 function WorldPathManager.findPath(x1, y1, x2, y2)
     WorldPathManager.j:set_start(x1, y1)
     WorldPathManager.j:set_end(x2, y2)
