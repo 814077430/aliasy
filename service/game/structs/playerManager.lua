@@ -30,7 +30,7 @@ function PlayerManager.createPlayer(account)
     player.uid = const.PlayerUid + self.playerIncrId
     skynet.send(const.Db, "lua", "g2d_insert_t_user", player.account, player.uid)
 
-    player.roleData = RoleData:new()
+    player.roleData = RoleData.create()
     player.roleData.name = "noname"
     self:addDirty(player.uid, "roleData")
 
