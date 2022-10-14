@@ -1,20 +1,10 @@
 --RoleData
-RoleData = {
-    name = "",
-}
+local PlayerRoleDataManager = {}
 
-function RoleData:new()
-    local o = {}
-    setmetatable(o, self)
-    self.__index = self
-
-    self.name = ""
-
-    return o
+function PlayerRoleDataManager.create()
+    local roleData = {}
+    roleData.name = ""
+    return roleData
 end
 
-function RoleData:getName()
-    return self.name
-end
-
-return RoleData
+return PlayerRoleDataManager
