@@ -20,7 +20,7 @@ function cmds.d2g_start(msg)
         playerManager.acc2Uid[msg[i].account] = msg[i].uid
     end
 
-    playerManager.onStart()
+    playerManager:onStart()
 end
 
 function cmds.d2g_loadOver()

@@ -3,57 +3,86 @@ local const = require "const"
 local xserialize = require "xserialize"
 local RoleData = require "playerRoleDataManager"
 
-local PlayerManager = {}
-PlayerManager.players = {}
-PlayerManager.onlines = {}
-PlayerManager.acc2Uid = {}
-PlayerManager.playerIncrId = 0
-PlayerManager.dirtys = {}
-PlayerManager.lastDay = 0
+--Player
+Player = {
+    uid = 0,
+    account = "",
+    roleData = nil
+}
 
-function PlayerManager.Player()
-    local player = {}
-    player.uid = 0
-    player.account = ""
-    player.roleData = nil
+function Player:new()
+    local o = {}
+    setmetatable(o, self)
+    self.__index = self
 
-    return player
+    self.uid = 0
+    self.account = ""
+    self.roleData = nil
+
+    return o
 end
 
-function PlayerManager.createPlayer(account)
-    PlayerManager.playerIncrId = PlayerManager.playerIncrId + 1
-    skynet.send(const.Db, "lua", "g2d_update_t_general", "playerIncrId", PlayerManager.playerIncrId)
+--PlayerManager
+PlayerManager = {
+    players = {},
+    onlines = {},
+    acc2Uid = {},
+    playerIncrId = 0,
+    dirtys = {},
+    lastDay = 0,
+}
 
-    local player = PlayerManager.Player()
+function PlayerManager:new()
+    local o = {}
+    setmetatable(o, self)
+    self.__index = self
+
+    self.playerIncrId = 0
+    self.players = {}
+    self.onlines = {}
+    self.acc2Uid = {}
+
+    self.dirtys = {} -- uid : {'roleData' : 1, 'itemData' : 1 ...}
+
+    self.lastDay = 0
+
+    return o
+end
+
+function PlayerManager:createPlayer(account)
+    self.playerIncrId = self.playerIncrId + 1
+    skynet.send(const.Db, "lua", "g2d_update_t_general", "playerIncrId", self.playerIncrId)
+
+    local player = Player:new()
     
     player.account = account
-    player.uid = const.PlayerUid + PlayerManager.playerIncrId
+    player.uid = const.PlayerUid + self.playerIncrId
     skynet.send(const.Db, "lua", "g2d_insert_t_user", player.account, player.uid)
 
-    player.roleData = RoleData.create()
+    player.roleData = RoleData:new()
     player.roleData.name = "noname"
-    PlayerManager:addDirty(player.uid, "roleData")
+    self:addDirty(player.uid, "roleData")
 
-    PlayerManager.players[player.uid] = player
-    PlayerManager.onlines[player.uid] = player
-    PlayerManager.acc2Uid[player.account] = player.uid
+    self.players[player.uid] = player
+    self.onlines[player.uid] = player
+    self.acc2Uid[player.account] = player.uid
 end
 
-function PlayerManager.addDirty(uid, key)
-    if not PlayerManager.dirtys[uid] then
-        PlayerManager.dirtys[uid] = {}
+function PlayerManager:addDirty(uid, key)
+    if not self.dirtys[uid] then
+        self.dirtys[uid] = {}
     end
 
-    PlayerManager.dirtys[uid][key] = 1
+    self.dirtys[uid][key] = 1
 end
 
-function PlayerManager.getPlayer(account)
-    local uid = PlayerManager.acc2Uid[account]
-    return PlayerManager.players[uid]
+function PlayerManager:getPlayer(account)
+    local uid = self.acc2Uid[account]
+    return self.players[uid]
 end
 
-function PlayerManager.onStart()
-    PlayerManager.lastDay =  math.ceil(math.ceil(skynet.time()) / const.OneDay)
+function PlayerManager:onStart()
+    self.lastDay =  math.ceil(math.ceil(skynet.time()) / const.OneDay)
 end
 
 function PlayerManager:onLogin(uid)
@@ -68,22 +97,22 @@ function PlayerManager:crossDay()
 
 end
 
-function PlayerManager.onTick()
+function PlayerManager:onTick()
     --deal dirtys
-    for k, v in pairs(PlayerManager.dirtys) do
+    for k, v in pairs(self.dirtys) do
         for k1, v1 in pairs(v) do
-            local data = xserialize.encodeToDb(k1, PlayerManager.players[k][k1])
+            local data = xserialize.encodeToDb(k1, self.players[k][k1])
             skynet.send(const.Db, "lua", "g2d_update_t_user", k, k1, data)
         end
-        PlayerManager.dirtys[k] = nil
+        self.dirtys[k] = nil
     end
 
     --corss day
     local day = math.ceil(math.ceil(skynet.time()) / const.OneDay)
-    if PlayerManager.lastDay ~= day then
-        PlayerManager.lastDay = day
-        PlayerManager.crossDay()
+    if self.lastDay ~= day then
+        self.lastDay = day
+        self:crossDay()
     end
 end
 
-return PlayerManager
+return PlayerManager:new()

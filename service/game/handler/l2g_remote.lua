@@ -10,7 +10,7 @@ function cmds.l2g_login(msg)
     local fd = msg.fd
 
     if not playerManager.acc2Uid[account] then
-        playerManager.createPlayer(account)
+        playerManager:createPlayer(account)
     end
 
     local player = playerManager:getPlayer(account)
@@ -34,11 +34,11 @@ function cmds.l2g_logout(msg)
         return
     end
 
-    local player = playerManager.getPlayer(account)
+    local player = playerManager:getPlayer(account)
     if not player then
         return
     end
 
     con.delCon(uid)
-    playerManager.onLogout(uid)
+    playerManager:onLogout(uid)
 end
