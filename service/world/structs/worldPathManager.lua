@@ -45,7 +45,7 @@ function WorldPathManager.init(length, width)
     end
 end
 
-function WorldPathManager.add_block(x, y)
+function WorldPathManager.addBlock(x, y)
     WorldPathManager:add_block(x, y)
 end
 
