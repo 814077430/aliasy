@@ -1,7 +1,7 @@
 --RoleData
 local PlayerRoleDataManager = {}
 
-function PlayerRoleDataManager.create()
+function PlayerRoleDataManager:create()
     local roleData = {}
     roleData.name = ""
     return roleData

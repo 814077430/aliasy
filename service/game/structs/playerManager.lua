@@ -24,13 +24,11 @@ function PlayerManager:createPlayer(account)
     self.playerIncrId = self.playerIncrId + 1
     skynet.send(const.Db, "lua", "g2d_update_t_general", "playerIncrId", self.playerIncrId)
 
-    local player = self.Player()
-    
+    local player = self:Player()
     player.account = account
     player.uid = const.PlayerUid + self.playerIncrId
     skynet.send(const.Db, "lua", "g2d_insert_t_user", player.account, player.uid)
-
-    player.roleData = RoleData.create()
+    player.roleData = RoleData:create()
     player.roleData.name = "noname"
     self:addDirty(player.uid, "roleData")
 
@@ -82,7 +80,7 @@ function PlayerManager:onTick()
     local day = math.ceil(math.ceil(skynet.time()) / const.OneDay)
     if self.lastDay ~= day then
         self.lastDay = day
-        self.crossDay()
+        self:crossDay()
     end
 end
 
