@@ -14,7 +14,6 @@ function WorldPathManager.init(length, width)
     WorldPathManager.j = jps.new({
         h = length,
         w = width,
-        obstacle = {},
     })
 
     if not WorldPathManager.j then
