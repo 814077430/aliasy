@@ -49,4 +49,4 @@ function UnionManager:onTick()
     end
 end
 
-return UnionManager:new()
+return UnionManager
