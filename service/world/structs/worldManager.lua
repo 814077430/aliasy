@@ -8,7 +8,6 @@ local worldAoiManager = require "worldAoiManager"
 
 --WorldManager
 WorldManager = {}
-
 WorldManager.worldIncrId = 0
 WorldManager.world = nil
 WorldManager.lastDay = 0
