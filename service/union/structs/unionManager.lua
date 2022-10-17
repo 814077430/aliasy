@@ -1,42 +1,18 @@
 local skynet = require "skynet"
 local const = require "const"
 
---Union
-Union = {
-    unid = 0,
-    baseData = nil,
-}
+local UnionManager = {}
+UnionManager.unions = {}
+UnionManager.dirtys = {}
+UnionManager.unionIncrId = 0
+UnionManager.lastDay = 0
 
-function Union:new()
-    local o = {}
-    setmetatable(o, self)
-    self.__index = self
+function PlayerManager:Union()
+    local union = {}
+    union.unid = 0
+    union.baseData = nil
 
-    self.unid = 0
-    self.baseData = nil
-
-    return o
-end
-
---UnionManager
-UnionManager = {
-    unionIncrId = 0,
-    unions = {},
-    dirtys = {},
-    lastDay = 0,
-}
-
-function UnionManager:new()
-    local o = {}
-    setmetatable(o, self)
-    self.__index = self
-
-    self.unionIncrId = 0
-    self.unions = {}
-    self.dirtys = {} -- unid : {'baseData' : 1, 'memberData' : 1 ...}
-    self.lastDay = 0
-
-    return o
+    return union
 end
 
 function UnionManager:addDirty(unid, key)
