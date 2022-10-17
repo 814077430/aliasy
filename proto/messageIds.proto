@@ -1,6 +1,7 @@
 syntax = "proto2";
 package pb;
 
+//协议号后边不要加注释
 //c2s s2c 成对出现时候 s2c = c2s + 1
 //push 消息可以单独定义 s2c
 //10000 < id < 20000 route to login service

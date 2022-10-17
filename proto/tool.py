@@ -25,9 +25,21 @@ def dealMessageId():
 def dealErrorCode():
     return
 
+def dealCmds():
+    file_object = open("./messageIds.proto", "r")
+    try:
+        all = file_object.read()
+    finally:
+        file_object.close()
+
+    all = all.split("enum MessageId")
+    
+    return
+
 def __main__():
     dealMessageId()
     dealErrorCode()
+    dealCmds()
     return
 
 __main__()

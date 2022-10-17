@@ -4,7 +4,7 @@ package pb;
 //player.roleData 玩家结构字段 
 //db.roleData 数据库字段
 //pb.roleData protobuf结构
-//名称与结构保持一致
+//以上三处结构名称需要保持一致
 
 message roleData {
     optional string name = 1;
