@@ -10,13 +10,13 @@ local jps = require "jps"
 local WorldPathManager = {}
 WorldPathManager.j = nil
 
-function WorldPathManager.init(length, width)
-    WorldPathManager.j = jps.new({
+function WorldPathManager:init(length, width)
+    self.j = jps.new({
         h = length,
         w = width,
     })
 
-    if not WorldPathManager.j then
+    if not self.j then
         logger.Debug("WorldPathManager.init:jps error")
         return
     end
@@ -37,30 +37,30 @@ function WorldPathManager.init(length, width)
         for j = 1, width do
             block = string.sub(line, j, j)
             if block == "1" then
-                WorldPathManager.j:add_block(i, j - 1)
+                self.j:add_block(i, j - 1)
             end
         end
         i = i + 1
     end
 end
 
-function WorldPathManager.addBlock(x, y)
-    WorldPathManager:add_block(x, y)
+function WorldPathManager:addBlock(x, y)
+    self.j:add_block(x, y)
 end
 
-function WorldPathManager.clearBlock(x, y)
-    WorldPathManager:clear_block(x, y)
+function WorldPathManager:clearBlock(x, y)
+    self.j:clear_block(x, y)
 end
 
-function WorldPathManager.checkBlock(x, y)
-    WorldPathManager:check_block(x, y)
+function WorldPathManager:checkBlock(x, y)
+    self.j:check_block(x, y)
 end
 
-function WorldPathManager.findPath(x1, y1, x2, y2)
-    WorldPathManager.j:set_start(x1, y1)
-    WorldPathManager.j:set_end(x2, y2)
-    WorldPathManager.j:mark_connected() 
-    return WorldPathManager.j:find_path()
+function WorldPathManager:findPath(x1, y1, x2, y2)
+    self.j:set_start(x1, y1)
+    self.j:set_end(x2, y2)
+    self.j:mark_connected() 
+    return self.j:find_path()
 end
 
 return WorldPathManager

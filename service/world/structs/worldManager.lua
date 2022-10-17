@@ -15,8 +15,8 @@ WorldManager.lastDay = 0
 
 function WorldManager.init()
     WorldManager.lastDay = math.ceil(math.ceil(skynet.time()) / const.OneDay)
-    worldPathManager.init(const.WorldLength, const.Worldwidth)
-    worldAoiManager.init(const.WorldLength, const.Worldwidth)
+    worldPathManager:init(const.WorldLength, const.Worldwidth)
+    worldAoiManager:init(const.WorldLength, const.Worldwidth)
 end
 
 function WorldManager.crossDay()

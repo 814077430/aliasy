@@ -11,21 +11,21 @@ WorldAoiManager.lenMax = 0
 WorldAoiManager.widMax = 0
 WorldAoiManager.tiles = {}
 
-function WorldAoiManager.init(length, width)
-    WorldAoiManager.length = length
-    WorldAoiManager.width = width
-    WorldAoiManager.lenMax = math.ceil(WorldAoiManager.length/const.TileLen)
-    WorldAoiManager.widMax = math.ceil(WorldAoiManager.width/const.TileLen)
+function WorldAoiManager:init(length, width)
+    self.length = length
+    self.width = width
+    self.lenMax = math.ceil(self.length/const.TileLen)
+    self.widMax = math.ceil(self.width/const.TileLen)
 
-    for i = 1, WorldAoiManager.lenMax do
-        for j = 1, WorldAoiManager.widMax do
+    for i = 1, self.lenMax do
+        for j = 1, self.widMax do
             local tile = {}
             tile.watchers = {}
             tile.objs = {}
-            if not WorldAoiManager.tiles[i] then
-                WorldAoiManager.tiles[i] = {}
+            if not self.tiles[i] then
+                self.tiles[i] = {}
             end
-            WorldAoiManager.tiles[i][j] = tile
+            self.tiles[i][j] = tile
         end
     end
 end
