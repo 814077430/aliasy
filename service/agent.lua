@@ -16,12 +16,12 @@ ROUTE[const.RouteGame] = function(name, data)
 	return pcall(skynet.call, const.Game, "lua", name, skynet.self(), data)
 end
 
-ROUTE[const.RouteWorld] = function(name, data)
-	return pcall(skynet.call, const.World, "lua", name, skynet.self(), data)
-end
-
 ROUTE[const.RouteUnion] = function(name, data)
 	return pcall(skynet.call, const.Union, "lua", name, skynet.self(), data)
+end
+
+ROUTE[const.RouteWorld] = function(name, data)
+	return pcall(skynet.call, const.World, "lua", name, skynet.self(), data)
 end
 
 skynet.register_protocol {

@@ -5,7 +5,8 @@ package pb;
 //push 消息可以单独定义 s2c
 //10000 < id < 20000 route to login service
 //20000 < id < 30000 route to game service
-//30000 < id < 40000 route to world service
+//30000 < id < 40000 route to union service
+//40000 < id < 50000 route to world service
 
 enum MessageId
 {

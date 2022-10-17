@@ -17,8 +17,8 @@ Enum.Db = "db"
 
 Enum.RouteLogin = 1
 Enum.RouteGame = 2
-Enum.RouteWorld = 3
-Enum.RouteUnion = 4
+Enum.RouteUnion = 3
+Enum.RouteWorld = 4
 
 Enum.DbLoadNum = 10
 
