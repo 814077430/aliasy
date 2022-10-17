@@ -48,7 +48,7 @@ local function __start__()
 		end
 	end
 
-	worldManager.init()
+	worldManager:onInit()
 
 	--start tick
 	skynet.timeout(const.Internal, __tick__)
@@ -57,6 +57,6 @@ end
 skynet.start(__start__)
 
 function __tick__()
-	worldManager.tick()
+	worldManager:onTick()
 	skynet.timeout(const.Internal, __tick__)
 end

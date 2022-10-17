@@ -11,7 +11,7 @@ WorldAoiManager.lenMax = 0
 WorldAoiManager.widMax = 0
 WorldAoiManager.tiles = {}
 
-function WorldAoiManager:init(length, width)
+function WorldAoiManager:onInit(length, width)
     self.length = length
     self.width = width
     self.lenMax = math.ceil(self.length/const.TileLen)

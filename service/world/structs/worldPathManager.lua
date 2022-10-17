@@ -10,7 +10,7 @@ local jps = require "jps"
 local WorldPathManager = {}
 WorldPathManager.j = nil
 
-function WorldPathManager:init(length, width)
+function WorldPathManager:onInit(length, width)
     self.j = jps.new({
         h = length,
         w = width,
