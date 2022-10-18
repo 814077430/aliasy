@@ -1,6 +1,3 @@
-package.cpath = "./skynet/luaclib/?.so;"
-package.path = "./skynet/lualib/?.lua;./skynet/examples/?.lua;./lualib/?.lua;./proto/?.lua;"
-
 local skynet = require "skynet"
 local socket = require "skynet.socket"
 local msgdef = require "msgdefine"
