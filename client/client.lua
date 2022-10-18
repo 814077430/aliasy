@@ -6,6 +6,9 @@ local socket = require "skynet.socket"
 local msgdef = require "msgdefine"
 local xserialize = require "xserialize"
 
+local max_num = 100
+local robots = {}
+
 local function send_data(fd)
     while true do
         skynet.sleep(500)
@@ -20,6 +23,8 @@ local function send_data(fd)
 end
 
 skynet.start(function()
-    local fd = socket.open("127.0.0.1", 30000)
-    skynet.fork(send_data, fd)
+    for i = 1, max_num do
+        local fd = socket.open("127.0.0.1", 30000)
+        skynet.fork(send_data, fd)
+    end
 end)
