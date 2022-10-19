@@ -2,6 +2,7 @@ local socket = require "socket.core"
 package.path = package.path..";".."./?.lua;"
 local msgdef = require "msgdefine"
 local xserialize = require "xserialize"
+
 local host = "127.0.0.1"
 local port = 30000
 local robotNum = 1000
