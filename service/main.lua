@@ -23,7 +23,7 @@ local function init()
 	logger.Debug("watchdog listen on " .. addr .. ":" .. port)
 	
 	--test client
-	local client = skynet.newservice("client")
+	--local client = skynet.newservice("client")
 	
 	skynet.exit()
 end
