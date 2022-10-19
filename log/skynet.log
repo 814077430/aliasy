@@ -1,0 +1,27 @@
+19/10/22 09:08:00.27 [:00000002] LAUNCH snlua bootstrap
+19/10/22 09:08:00.27 [:00000003] LAUNCH snlua launcher
+19/10/22 09:08:00.27 [:00000004] LAUNCH snlua cdummy
+19/10/22 09:08:00.27 [:00000005] LAUNCH harbor 0 4
+19/10/22 09:08:00.27 [:00000006] LAUNCH snlua datacenterd
+19/10/22 09:08:00.27 [:00000007] LAUNCH snlua service_mgr
+19/10/22 09:08:00.27 [:00000008] LAUNCH snlua main
+19/10/22 09:08:00.27 [:00000008] [Debug] 2022-10-19 09:08:00 server start
+19/10/22 09:08:00.27 [:00000009] LAUNCH snlua battle
+19/10/22 09:08:00.27 [:00000009] [Debug] 2022-10-19 09:08:00 battle service start
+19/10/22 09:08:00.27 [:0000000a] LAUNCH snlua chat
+19/10/22 09:08:00.27 [:0000000a] [Debug] 2022-10-19 09:08:00 chat service start
+19/10/22 09:08:00.27 [:0000000b] LAUNCH snlua game
+19/10/22 09:08:00.27 [:0000000b] [Debug] 2022-10-19 09:08:00 game service start
+19/10/22 09:08:00.28 [:0000000c] LAUNCH snlua world
+19/10/22 09:08:00.28 [:0000000c] [Debug] 2022-10-19 09:08:00 world service start
+19/10/22 09:08:00.41 [:0000000d] LAUNCH snlua login
+19/10/22 09:08:00.41 [:0000000d] [Debug] 2022-10-19 09:08:00 login service start
+19/10/22 09:08:00.41 [:0000000e] LAUNCH snlua db
+19/10/22 09:08:00.41 [:0000000e] [Debug] 2022-10-19 09:08:00 db service start
+19/10/22 09:08:00.41 [:0000000e] [Debug] 2022-10-19 09:08:00 connect to mysql server success
+19/10/22 09:08:00.43 [:0000000f] LAUNCH snlua watchdog
+19/10/22 09:08:00.43 [:00000010] LAUNCH snlua gate
+19/10/22 09:08:00.43 [:00000010] Listen on 0.0.0.0:30000
+19/10/22 09:08:00.43 [:00000008] [Debug] 2022-10-19 09:08:00 watchdog listen on 0.0.0.0:30000
+19/10/22 09:08:00.43 [:00000008] KILL self
+19/10/22 09:08:00.43 [:00000002] KILL self
