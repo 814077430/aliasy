@@ -3,7 +3,7 @@ local socket = require "skynet.socket"
 local const = require "const"
 local logger = require "log"
 
-local function init()
+local function __start__()
 	logger.Debug("server start")
 	
 	local battle = skynet.newservice("battle")
@@ -28,4 +28,4 @@ local function init()
 	skynet.exit()
 end
 
-skynet.start(init)
+skynet.start(__start__)
