@@ -5,8 +5,12 @@ local xserialize = require "xserialize"
 
 local host = "127.0.0.1"
 local port = 30000
-local robotNum = 1000
+local robotNum = 10000
 local tcps = {}
+
+function sleep(n)
+    socket.select(nil, nil, n)
+end
 
 for i = 1, robotNum do
     local tcp = socket.tcp()
@@ -27,8 +31,10 @@ for i = 1, robotNum do
 end
 
 for k, v in pairs(tcps) do
+    sleep(1)
     if v then
-        --v:close()
+        v:close()
+        tcps[k] = nil
     end
 end
 
